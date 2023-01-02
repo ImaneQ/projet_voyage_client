@@ -1,0 +1,189 @@
+<!--
+<div class="container" *ngFor="let item of arrayTodosList">
+  <span>{{item.nomDossier}}</span>
+
+  <h1>ICI</h1>
+</div> -->
+<!-- -->
+<!-- <button mat-raised-button class="vh-10" color="primary" (click)="onOpenModal()">
+  <mat-icon class="mat-18">add</mat-icon> Ajouter Liste
+</button>
+<div *ngFor="let item of arrayTodosList ; let i=index">
+  <div *ngIf="item.utilisateur_id == datas.utilisateur_id">
+
+
+    <mat-accordion>
+
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+
+          <mat-panel-title>
+            {{ item.list_title | json }} </mat-panel-title>
+
+        </mat-expansion-panel-header>
+        <div class="description">
+          DESCRIPTION </div>
+
+
+      </mat-expansion-panel>
+
+
+    </mat-accordion>
+
+
+  </div>
+
+</div> -->
+
+
+
+
+<section class="listes">
+
+
+  <div class="container-list">
+
+    <div class="lists" *ngFor="let list of listsArray">
+      <p (click)="updateTitle(list)">{{list.list_title}}</p>
+      <div class="icons">
+        <mat-icon class="mat-18" (click)="onClickCard(list)">edit
+        </mat-icon>
+        <mat-icon class="mat-18" (click)="onDelete(list.todo_list_id)">delete</mat-icon>
+        <mat-icon class="mat-18" (click)="onPrint(list)">print</mat-icon>
+        <mat-icon class="mat-18">edit
+        </mat-icon>
+      </div>
+
+
+    </div>
+
+    <div class="add">
+      <div class="btn" (click)="onClickPlus()">
+        <mat-icon class="mat-18">add</mat-icon>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</section>
+
+
+<!-- <div class="todos-wrapper">
+    <h1>ID: {{datas.utilisateur_id | json }}</h1>
+
+    <div class="todo-item" *ngFor="let todo of arrayTodos; index as index">
+        <div class="checkbox">
+            <i class="material-icons-outlined">
+            </i>
+        </div>
+        <p class="todo-text">{{ todo[index].list_title | json }}</p>
+    </div>
+  <div class="container" *ngFor="let todo of arrayTodos"> -->
+<!-- <app-todo-item [arrayTodos]="todo"></app-todo-item> -->
+<!-- <app-todo-item *ngFor="let todo of arrayTodos" [todo]="todo"></app-todo-item> -->
+<!-- <div>{{ todo | json}}</div> -->
+<!-- </div> -->
+
+<!-- </div> -->
+
+
+<!-- <div class="container-fluid vh-100 col-md-12">
+    <div class="">
+
+        <mat-card-header>
+            <mat-card-title>Nouvelle liste !</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form [formGroup]="todoForm" class="d-flex justify-content-evenly">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Type todo text here ...</mat-label>
+                    <input formControlName="list_title" matInput placeholder="Type todo text here ...">
+                </mat-form-field>
+                <button mat-raised-button class="vh-10" color="primary" (click)="addList()">
+                    <mat-icon class="mat-18">add</mat-icon> Ajouter
+                </button>
+            </form>
+        </mat-card-content>
+
+    </div>
+
+
+
+    <div class="todo-item" *ngFor="let todo of arrayTodosList; index as index">
+      <div *ngIf="this.datas[0].utilisateur_id == this.arrayTodosList[0].utilisateur_id"> -->
+<!-- <div class="checkbox">
+                <i class="material-icons-outlined">
+                </i>
+            </div>
+            <p class="todo-text">{{ todo[index].list_title | json }}</p>
+            <mat-icon class="mat-18" class=" align-self-end" (click)="onOpenModal(todo)">edit</mat-icon>
+            <mat-icon class="mat-18" (click)="deleteList(todo.todo_list_id)" color="warn">delete</mat-icon>
+        </div>
+
+    </div> -->
+<!-- </div> -->
+<!--
+<mat-accordion *ngFor="let item of arrayForTodos ">
+
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+
+            <mat-panel-title>
+                {{item.title}}
+            </mat-panel-title>
+
+        </mat-expansion-panel-header>
+        <div class="descritpion">
+            {{ item.description}}
+        </div>
+        <button mat-raised-button class="vh-10" color="primary" (click)="DeleteDescription()">
+            <mat-icon class="mat-18">add</mat-icon> Ajouter description
+        </button> <button mat-raised-button class="vh-10" color="primary" (click)="updateDescription()">
+            <mat-icon class="mat-18">add</mat-icon> Ajouter description
+        </button>
+       j'ajoute 1 description grace au service detail -->
+<!-- <button mat-raised-button class="vh-10" color="primary" (click)="addDescription()">
+            <mat-icon class="mat-18">add</mat-icon> Ajouter description
+        </button> -->
+
+<!-- </mat-expansion-panel> -->
+<!-- on ouvre une modale avec un formgroup title, todos description-->
+<!-- <button mat-raised-button class="vh-10" color="primary" (click)="onOpenModal()"> -->
+<!-- <mat-icon class="mat-18">add</mat-icon> Ajouter Liste
+    </button>
+
+</mat-accordion> -->
+
+
+<!-- <mat-accordion>
+
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+
+      <mat-panel-title>
+        TITRE </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <div class="descritpion">
+      DESCRIPTION </div>
+   <button mat-raised-button class="vh-10" color="primary" (click)="DeleteDescription()">
+            <mat-icon class="mat-18">add</mat-icon> Ajouter description
+        </button> <button mat-raised-button class="vh-10" color="primary" (click)="updateDescription()"> -->
+<!-- <mat-icon class="mat-18">add</mat-icon> Ajouter description
+        </button> -->
+<!-- j'ajoute 1 description grace au service detail -->
+<!-- <button mat-raised-button class="vh-10" color="primary" (click)="addDescription()">
+            <mat-icon class="mat-18">add</mat-icon> Ajouter description
+        </button> -->
+
+<!-- </mat-expansion-panel> -->
+<!-- on ouvre une modale avec un formgroup title, todos description-->
+<!-- <button mat-raised-button class="vh-10" color="primary" (click)="onOpenModal()"> -->
+<!-- <mat-icon class="mat-18">add</mat-icon> Ajouter Liste
+    </button> -->
+
+<!-- </mat-accordion> -->

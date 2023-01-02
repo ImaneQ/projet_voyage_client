@@ -1,0 +1,50 @@
+.todo-item {
+    cursor: pointer;
+    padding: 1vh 1.3vh;
+    display: flex;
+    align-items: center;
+    background-color: rgba(black, 0.4);
+    border-radius: 100px;
+    width: 60vw;
+    margin: auto;
+    margin-bottom: 2vh;
+
+    .todo-text {
+        color: rgba(white, 0.92);
+        text-align: center;
+    }
+
+    .checkbox {
+        padding: 1.5vh;
+        border: 0.2vh solid rgba(white, 0.35);
+        border-radius: 50%;
+        margin-right: 1.5vw;
+        height: 2.5vh;
+
+        &:hover {
+            border-color: transparent;
+            background-color: rgba(white, 0.35);
+        }
+
+        i {
+            font-size: 1.5vh;
+            color: white;
+            opacity: 0;
+        }
+    }
+
+    // // &.completed {
+    // //     .todo-text {
+    // //         color: rgba(white, 0.78);
+    // //     }
+
+    // //     .checkbox {
+    // //         background: rgb(9, 218, 89);
+    // //         border-color: transparent;
+
+    // //         i {
+    // //             opacity: 1;
+    // //         }
+    // //     }
+    // }
+}

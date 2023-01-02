@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.all {
+  position: relative;
+
+
+  // .bg {
+  //   background-image: url('https://images.pexels.com/photos/14013191/pexels-photo-14013191.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  //   background-size: cover;
+  //   width: 100vw;
+  //   height: 100vh;
+  //   position: absolute;
+  // }
+
+  .example-card {
+    max-width: 45vw;
+    height: 50vh;
+    background: rgba($color: white, $alpha: 0.3);
+    backdrop-filter: blur(4px);
+    padding: 5vw;
+
+    mat-card-content {
+      color: black;
+
+      .example-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+          font-size: 2em;
+          text-shadow: 1px 1px black;
+          color:rgba(white, 0.5);
+        }
+
+        .mat-form-fields {
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+
+        }
+      }
+
+    }
+  }
+
+}

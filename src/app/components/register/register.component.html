@@ -1,0 +1,50 @@
+<form class="example-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <h2>Je veux voyager ...</h2>
+  <!-- on ne met pas de ngmodels dans ce formulaire qd on declare ds formGroup   -->
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Nom</mat-label>
+    <input type="text" matInput formControlName="nom">
+
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Prenom</mat-label>
+    <input type="text" matInput formControlName="prenom">
+
+
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>e-mail</mat-label>
+    <input type="text" matInput formControlName="utilisateur_mail">
+  </mat-form-field>
+
+
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Mot de passe</mat-label>
+      <input matInput type="password" formControlName="utilisateur_mdp">
+      <button mat-icon-button matSuffix>
+        <mat-icon>remove_red_eye</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label></mat-label>
+      <!--! si on a pas de formGroup on met (FormGroup) sinon FormControlName -->
+      <input matInput type="password" formControlName="conf_utilisateur_mdp">
+      <button mat-icon-button matSuffix>
+        <mat-icon>remove_red_eye</mat-icon>
+      </button>
+      <!-- n'envoie pas le formulaire donc disable n'autorise pas  -->
+    </mat-form-field>
+  </div>
+
+
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Soumettre</button>
+
+
+</form>
