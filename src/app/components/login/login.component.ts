@@ -33,9 +33,14 @@ export class LoginComponent implements OnInit {
 
   // on met le formulaire dans ngOnInit pour qu'il s'affiche directement
   ngOnInit(): void {
+
+    // on supprime le token à l'ouverture du component pour une nouvelle connexion
     localStorage.removeItem('token')
+
+    // on supprime les données du user connecté à l'ouverture du component pour une nouvelle connexion
     localStorage.removeItem('userLogged')
-    // on utilise le formbuilder pour cosntruire le formulaire
+
+    // on utilise le formbuilder pour cosntruire le formulaire grâce à la méthode group
     this.loginForm = this._fb.group({
       utilisateur_mail: (['', Validators.required]),
       utilisateur_mdp: (['', Validators.required])
@@ -44,39 +49,48 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    // on récupere les valeurs du formlaire
+    // on récupere les valeurs du formlaire qu'on met dans une constante
     const form = this.loginForm.value;
     // on assigne notre model à un nouveau model "user"
     this.user = Object.assign(this.user, form);
 
     this._backendService.postLogin(this.user).subscribe((data: any) => {
+
       console.warn('token', data.token);
+      // on récupère le token depuis la valeur qu'on reçoit
       const token = data.token;
       console.log(data.token);
+
+      // on récupère les datas du user connecté
       const user = data.users
+
       // on stocke le token ds localstorage
       localStorage.setItem('token', token)
       localStorage.setItem('userLogged', JSON.stringify(user))
-      // localStorage.setItem('user', user)
-      // on redirige le user vers l'overview apres qu'il submit
 
+
+      // on redirige le user vers l'overview apres qu'il submit
       this._route.navigate(['/overview'])
 
 
 
-
+      // on crée notre modale
       const modalRef = this._matDialog.open(LoginModalComponent, {
+        // 'data' valeurs qu'on envoie à notre modale
+        // ! TOUJOURS DATA
         data: data
       })
 
+      // on récupère les valeurs à la fermeture de la modale et on subscribe
       modalRef.afterClosed().subscribe((responseFromModal: any) => {
         console.log(responseFromModal);
-
+        //  si on a bien les valeurs depuis modale alors
         if (responseFromModal) {
 
+          // on fait appel au userservice et on fait passer la valeur "data"
           this._userService.setCurrentUser(data)
-
         }
+
       })
 
 
@@ -92,7 +106,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-
+  // redirection vers le component register grace à navigate()
   goToRegister() {
 
     this._route.navigate(['/register'])

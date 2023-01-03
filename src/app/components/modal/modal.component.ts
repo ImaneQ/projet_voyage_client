@@ -29,10 +29,7 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {
 
     console.warn('les données recues par la modale', this.listDatas);
-    // this._todoService.readOneList(this.id).subscribe((datas: any) => {
-    //   console.log('ici datas', datas);
 
-    // })
 
     this.listId = this.listDatas.todo_list_id
 
@@ -43,11 +40,6 @@ export class ModalComponent implements OnInit {
     })
   }
 
-  closeModal() {
-    // this._dialogRef.close(this.dataUser)
-    // console.log(this.dataUser);
-
-  }
 
   onClose() {
 
@@ -74,10 +66,7 @@ export class ModalComponent implements OnInit {
         this.descriptionArray = getDatas;
         console.log('description envoyée au back', this.descriptionArray);
       })
-      // this._dialogRef.close(
-      //   this.newDescription
-      //   // this.newObj
-      // )
+
 
       //! reset pour supprimer la valeur de l'input une fois envoyée
       this.description.reset()

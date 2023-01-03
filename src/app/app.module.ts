@@ -12,10 +12,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { DetailComponent } from './components/detail/detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { LoginModalComponent } from './login-modal/login-modal/login-modal.component';
@@ -42,12 +42,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { TextFieldModule } from '@angular/cdk/text-field';
 import { TitleModalComponent } from './modal/title-modal/title-modal.component';
-import { TodoItemComponent } from './components/todo-item/todo-item.component';
-import { TodoModel } from 'src/app/models/todo.model';
 import { TodosComponent } from './components/todos/todos.component';
 import { UpdateTitleComponent } from './modal/update-title/update-title/update-title.component';
 import { httpInterceptorProviders } from './interceptors/index';
-import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
 
 @NgModule({
   declarations: [
@@ -57,8 +54,6 @@ import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
     OverviewComponent,
     ModalComponent,
     TodosComponent,
-    DetailComponent,
-    TodoItemComponent,
     TabsComponent,
     LoginModalComponent,
     TitleModalComponent,
