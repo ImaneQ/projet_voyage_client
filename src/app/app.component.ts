@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -6,10 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  todayDate: Date = new Date();
+
   title = 'projet-voyages';
-  // constructor(public datepipe: DatePipe) { }
+  dateTime!: Date;
+  constructor(
+  ) { }
 
+  ngOnInit(): void {
 
+    this.dateTime = new Date()
 
-  //   let currentDateTime = this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
+  }
 }

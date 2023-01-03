@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './guards/auth.guards';
+import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { OverviewComponent } from './components/overview/overview.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },
-  { path: 'todos', component: TodosComponent, canActivate: [AuthGuard] }
+  { path: 'todos', component: TodosComponent, canActivate: [AuthGuard] },
+  { path: 'bookmarks', component: BookmarksComponent, canActivate: [AuthGuard] }
 ]
 
 

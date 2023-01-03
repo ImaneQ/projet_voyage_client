@@ -26,6 +26,9 @@ export class OverviewComponent implements OnInit {
 
     })
 
+    let dateTime = new Date()
+    console.log(dateTime);
+
   }
 
   //  logout() : void {

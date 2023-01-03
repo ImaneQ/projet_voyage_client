@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   currentUserLogged: boolean = true;
   // on nomme le formulaire
-  // FormGroup
+  // FormGroup car reactive forms
   loginForm!: FormGroup;
   // on fait appel a la class User
   user = new User();
@@ -39,13 +39,11 @@ export class LoginComponent implements OnInit {
     this.loginForm = this._fb.group({
       utilisateur_mail: (['', Validators.required]),
       utilisateur_mdp: (['', Validators.required])
-      // utilisateur_id: [this.user.utilisateur_id]
     })
 
   }
 
   onSubmit() {
-    // imanoss999@39.fr
     // on récupere les valeurs du formlaire
     const form = this.loginForm.value;
     // on assigne notre model à un nouveau model "user"

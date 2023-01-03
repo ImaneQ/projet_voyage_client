@@ -47,6 +47,7 @@ import { TodoModel } from 'src/app/models/todo.model';
 import { TodosComponent } from './components/todos/todos.component';
 import { UpdateTitleComponent } from './modal/update-title/update-title/update-title.component';
 import { httpInterceptorProviders } from './interceptors/index';
+import { BookmarksComponent } from './components/bookmarks/bookmarks.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { httpInterceptorProviders } from './interceptors/index';
     LoginModalComponent,
     TitleModalComponent,
     PrintModalComponent,
-    UpdateTitleComponent
+    UpdateTitleComponent,
+    BookmarksComponent
 
 
   ],

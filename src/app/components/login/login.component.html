@@ -3,8 +3,9 @@
   <mat-card class="example-card">
     <mat-card-content>
 
+      <!-- c'est un formgroup car reactive forms -->
       <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <!-- formGroup on l'appelle come on l'a déclaré ds le TS  -->
+
         <h1>Bienvenue !<mat-icon class="mat-18" color="black">smile</mat-icon>
         </h1>
         <h3>Connectez-vous</h3>
@@ -14,12 +15,14 @@
             <mat-label>E-mail</mat-label>
             <!--! forcontrolName pour formcontrol, formcontrol avec property binding si c'est tt seul -->
             <input matInput type="text" formControlName="utilisateur_mail">
-
+            <!-- matInput directive qui autorise la balise input à utiliser <mat-form-field>. -->
           </mat-form-field>
 
           <mat-form-field appearance="outline" color="primary">
             <mat-label>Mot de passe</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="utilisateur_mdp">
+
+            <!-- attribut hide initialisé à true dans ts -->
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -34,6 +37,7 @@
 
           <button mat-button color="primary" (click)="goToRegister()">S'enregistrer</button>
         </mat-card-actions>
+        <!-- fonctionnalité du bouton annulée si le formulaire est invalide "loginForm.invalid" -->
         <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Soumettre</button>
 
       </form>
