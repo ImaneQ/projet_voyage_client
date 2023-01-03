@@ -1,57 +1,3 @@
-<!-- <form class="example-form" [formGroup]="editForm" (ngSubmit)="onSubmit()">
-
-  <h3>Edit todo <mat-icon class="mat-18" color="black">smile</mat-icon>
-  </h3>
-  <div class="example-container">
-
-
-    <mat-form-field appearance="outline">
-      <mat-label>Titre</mat-label>
-      <input matInput type="text" placeholder="Titre de ma todo liste" formControlName="list_title">
-      <mat-card-actions>
-        <mat-icon class="mat-18" class=" align-self-end" (click)="onCancel()">edit</mat-icon>
-      </mat-card-actions>
-    </mat-form-field>
-
-
-
-
-    <div formArrayName="allTodos">
-
-      <div *ngFor="let item of allTodos.controls ; let i=index">
-        <div [formGroupName]="i">
-
-
-          <mat-form-field appearance="outline">
-            <mat-label>Todo</mat-label>
-            <input matInput type="text" formControlName="todo">
-            <mat-card-actions>
-              <mat-icon class="mat-18" class=" align-self-end" (click)="onCancel()">edit</mat-icon>
-
-              <mat-icon class="mat-18" (click)="deleteTodo(i)" color="warn">delete</mat-icon>
-            </mat-card-actions>
-          </mat-form-field>
-        </div>
-
-      </div>
-
-
-    </div>
-    <button mat-button color="primary" fill="outline" (click)="addNewRow()">Ajouter
-      <mat-icon>add</mat-icon></button>
-    <button mat-button color="primary" (click)="onCancel()">Annuler</button>
-    <button mat-button color="primary" fill="outline" (click)="onSubmit()">Sauvegarder<mat-icon>save</mat-icon></button>
-
-  </div>
-
-</form> -->
-
-
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-
-
-
-
 <section class="add-list">
 
   <form>
@@ -76,31 +22,12 @@
             <!-- <mat-hint>{{message.value.length}} / 1000</mat-hint> -->
           </div>
 
-
-          <!-- Input pour créer les descritpions de la liste -->
-          <!-- <div class="input-desc">
-            <div class="icon-list">
-              <mat-icon>list</mat-icon>
-            </div>
-            <mat-form-field appearance="outline">
-              <mat-label>Ecrivez-ici...</mat-label>
-              <input matInput type="text" [formControl]="descControl" placeholder="Ex. Visiter le musée...">
-            </mat-form-field>
-            <button type="submit" class="btn-validate">
-              <mat-icon (click)="onAddTitle()">check</mat-icon>
-            </button>
-          </div> -->
-
         </form>
 
         <!-- Affichage des descriptions -->
         <div class="list-check">
           <ul>
             <!-- ! Itéré sur les listes ci dessous -->
-            <!-- <li>
-              <input type="checkbox" id="checkDesc">
-              <label for="checkDesc">Descritpion</label>
-            </li> -->
             <mat-divider [inset]="true"></mat-divider>
           </ul>
         </div>
@@ -120,10 +47,7 @@
             <mat-icon>print</mat-icon>
 
           </button>
-          <!-- <a mat-fab extended routerLink=".">
-          <mat-icon>favorite</mat-icon>
-          Link
-        </a> -->
+
         </div>
 
 

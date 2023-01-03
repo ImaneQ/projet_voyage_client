@@ -1,0 +1,22 @@
+.add-bookmark-wrapper {
+  padding: 35px;
+  border-radius: 5px;
+  max-height: 100%;
+  overflow: auto;
+  width: 40vw;
+  background: rgba($color: white, $alpha: 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: space-between;
+
+  .form {
+
+    .buttons {
+      margin-top: 2vh;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

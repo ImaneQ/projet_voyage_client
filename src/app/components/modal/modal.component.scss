@@ -1,0 +1,14 @@
+.descriptions {
+  overflow-y: scroll;
+  height: 20vh;
+
+  ul {
+
+    display: flex;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

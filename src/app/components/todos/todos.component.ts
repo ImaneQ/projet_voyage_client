@@ -7,15 +7,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ModalComponent } from './../modal/modal.component';
 import { PrintModalComponent } from 'src/app/modal/print-modal/print-modal/print-modal.component';
 import { TitleModalComponent } from '../../modal/title-modal/title-modal.component';
-import { TodoItemComponent } from './../todo-item/todo-item.component';
 import { TodoItemService } from './../../services/todo-item.service';
 import { TodoModel } from './../../models/todo.model';
 import { TodoService } from './../../services/todo.service';
 import { UpdateTitleComponent } from '../../modal/update-title/update-title/update-title.component';
-import { User } from '../../models/user.model';
 import { UserService } from 'src/app/services/user.service';
-import { map } from 'rxjs/operators';
-import { response } from 'express';
 
 @Component({
   selector: 'app-todos',
@@ -23,24 +19,20 @@ import { response } from 'express';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit {
+
   datas!: any;
   sendDatas!: any;
   datasFromModal!: any[];
   sendList!: any;
   todosModel = new TodoModel();
-  todos!: any;
-  arrayTodosList!: any[];
   todoForm!: FormGroup;
-  getDatas!: any;
-  dataUser: any[] = [];
   panelOpenState = false;
-  dataUserId!: any; // Pour récupérer l'id de l'utilisateur (pour les services).
   listsArray!: any[];
   userId!: any;
   listID!: any;
   arrayModif!: any[];
+
   constructor(private _userService: UserService,
-    private _backendService: BackendService,
     private _todoService: TodoService,
     private _fb: FormBuilder,
     private _snackBar: MatSnackBar,
@@ -49,35 +41,31 @@ export class TodosComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+    // on récupère les données du user connecté grâce à notre service
     this._userService.getUserLogged().subscribe((response: any) => {
       console.log('current user logged:', response);
       this.datas = response[0];
+      // on récupère l'id du user
       this.userId = response[0].utilisateur_id;
 
-
+      // on récupère toutes les todo list du user grâce au service '_todoService'
       this._todoService.readAllLists(this.userId).subscribe((lists: any) => {
         console.log('all lists', lists);
+        // on affecte un tableau à nos listes
         this.listsArray = lists;
         console.log(' this.listsArray', this.listsArray);
 
-
-        // this.listsArray.forEach((data: any) => {
-        //   this.listID = data.todo_list_id
-        //   console.log('this.listID',this.listID);
-
-        // })
+        // on récupère les descriptions liées à chaque liste
         this._todoItemService.getOneDetail(this.listID).subscribe((response: any) => {
           console.log('response detail', response);
 
-          // this.listsArray.push(response)
           console.log('test test', this.listsArray);
 
         })
       })
     })
 
-
+    // on fait appel au formbuilder pour mettre en place le todoform
     this.todoForm = this._fb.group({
       list_title: ['', Validators.required],
       todo_list_id: [this.todosModel.todo_list_id],
@@ -85,62 +73,13 @@ export class TodosComponent implements OnInit {
     })
 
 
-
-
-    // this._todoService.readAllLists().subscribe((allTodos: any) => {
-    //   console.log('allTodos', allTodos)
-    //   this.arrayTodosList = allTodos
-    //   //   if (this.datas[0].utilisateur_id == this.arrayTodosList[0].utilisateur_id) {
-
-    //   //     this.arrayTodosList.push(allTodos)
-    //   console.warn('arrayTodosList', this.arrayTodosList);
-    // })
-
-
-
-
-
-
-
   }
 
-
-  // addList() {
-  //   console.log('test');
-
-  //   const listValue = this.todoForm.value;
-  //   console.log(listValue);
-
-  //   this.todosModel = Object.assign(this.todosModel, listValue)
-  //   this._todoService.createList(listValue).subscribe((todoObject: any) => {
-  //     console.log(todoObject);
-  //     this.todosModel = todoObject;
-  //     this.arrayTodosList.push(this.todosModel)
-
-  //   })
-  //   // console.warn('todosModel', this.todosModel);
-  //   this.todoForm.reset()
-
-  // }
-
-
-  // deleteList(id: any) {
-
-  //   this._todoService.deleteList(id).subscribe((datasDeleted: any) => {
-  //     this._todoItemService.deleteAllDetails(id).subscribe()
-
-  //   });
-
-  //   this._snackBar.open('To do has been deleted !', 'Close', {
-  //     duration: 3000
-  //   });
-
-  //   this.arrayTodosList = this.arrayTodosList.filter((todo: any) => todo.todo_id != id)
-  // }
-
+  //  ne retourne rien :void
 
   onOpenModal(): void {
 
+    // on créer notre modale
     const modalRef = this._matDialog.open(TitleModalComponent, {
       width: '40vw', //sets width of dialog
       height: '40vh',
@@ -153,14 +92,13 @@ export class TodosComponent implements OnInit {
 
 
       console.log('responseFromModal', responseFromModal);
-      // let data = responseFromModal
       this.sendDatas = responseFromModal
 
       console.log('this.sendDatas', this.sendDatas);
 
 
 
-
+      // on affiche une notification lorsque la modale est fermée
       this._snackBar.open('La liste a été ajoutée !', 'Fermer', {
         duration: 3000
       });
@@ -170,7 +108,7 @@ export class TodosComponent implements OnInit {
 
 
 
-
+  //  méthode qui sert à éditer le titre de notre todo list
   onClickPlus() {
     this._matDialog.open(TitleModalComponent,
       {
@@ -193,7 +131,7 @@ export class TodosComponent implements OnInit {
 
     modalRef.afterClosed().subscribe((responseFromModal: any) => {
 
-
+      // on affecte un tableau aux valeures qu'on recoit
       console.log('responseFromModal', responseFromModal);
       this.arrayModif = responseFromModal
 
@@ -206,6 +144,7 @@ export class TodosComponent implements OnInit {
     })
   }
 
+  // méthode pour supprimer une liste
   onDelete(id: number) {
     console.log(id);
 
@@ -214,6 +153,7 @@ export class TodosComponent implements OnInit {
 
       this._todoService.deleteList(id).subscribe((listDelete: any) => {
         console.log('liste supprimée !', listDelete);
+        // on redirige le user vers le component todos pour refresh le component
         window.location.href = "/todos";
       })
 
@@ -222,7 +162,7 @@ export class TodosComponent implements OnInit {
 
   }
 
-
+  // méthode pour générer un pdf
   onPrint(list: any) {
 
     const modalRef = this._matDialog.open(PrintModalComponent,
@@ -232,21 +172,10 @@ export class TodosComponent implements OnInit {
       }
     )
 
-    modalRef.afterClosed().subscribe((responseFromModal: any) => {
 
-
-      // console.log('responseFromModal', responseFromModal);
-      // this.listsArray = responseFromModal
-
-
-      // console.log('this.listsArray', this.listsArray);
-
-      this._snackBar.open('Le pdf a été généré !', 'Fermer', {
-        duration: 3000
-      });
-    })
   }
 
+  // méthode pour modifier un titre
   updateTitle(title: any) {
     console.log('title', title);
 

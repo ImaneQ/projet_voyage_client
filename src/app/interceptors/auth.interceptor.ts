@@ -1,7 +1,8 @@
+// ! class qui implémente l'interface httpInterceptor et qui comporte le décorateur @Injectable()
+
 import {
   HttpEvent,
   HttpHandler,
-  HttpHeaders,
   HttpInterceptor,
   HttpRequest
 } from '@angular/common/http';
@@ -15,18 +16,18 @@ export class AuthInterceptor implements HttpInterceptor {
 
   constructor() { }
 
+  // méthode 'intercept' appelée pour chaque requête
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    // console.log('request', request);
 
+    // on créée des headers (informations qui permettent de structurer les échanges client/server),
+    // 'Authorization' => nom du header qu'on veut rajouter
     const headers = request.headers.set('Authorization', `Bearer ${BackendService.getToken()}`);
-    // console.log('headers', headers);
 
+    // on clône la requête précédente
     const modifiedReq = request.clone({ headers });
-    // console.log('modifiedReq', modifiedReq);
 
+    // next.handle => permet à la requête de continuer son chemin
     return next.handle(modifiedReq);
-
-
 
   }
 }

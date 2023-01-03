@@ -7,33 +7,18 @@
   box-sizing: border-box;
   width: 100%;
   flex-wrap: wrap;
-  // background: rgba($color: #ffffff, $alpha: 0.1);
-  // backdrop-filter: blur(4px);
-  padding: 1vw;
+  padding: 0.5vw;
   width: 70vw;
   border-radius: 20px;
 
-  .bookmark-title {
+  .container {
 
-    img{
-      max-width: 5vw;
+    .bookmark-tiles-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    max-width: 150px;
-    max-height: 150px;
-    border-radius: 20px;
-    background: rgba($color: #ffffff, $alpha: 0.5);
-    backdrop-filter: blur(4px);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 3vw;
-    padding: 1.2vw;
-    font-size: 1.8vh;
-    font-weight: 500;
-    box-sizing: border-box;
-    flex-wrap: wrap;
   }
 }

@@ -1,0 +1,24 @@
+<div class="add-bookmark-wrapper container has-blurred-white-bg">
+  <h2 class="is-bold">Ajouter un marque-page</h2>
+
+  <form #form="ngForm" ngNativeValidate (ngSubmit)="onFormSubmit(form)" class="form">
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <label class="form-label">Nom</label>
+      <input matInput class="textbox" ngModel #textField="ngModel" name="name" type="text" placeholder="e.g. Wikipedia"
+        required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <label class="form-label">URL</label>
+      <input matInput class="textbox" ngModel #textField="ngModel" name="name" type="text"
+        placeholder="e.g. http://wikipedia.com" required>
+    </mat-form-field>
+
+
+    <div class="buttons">
+      <button mat-raised-button routerLink="/bookmarks" class="btn">Annuler</button>
+      <button mat-raised-button color="primary" matInput class="btn align-end">Créer un Marque page</button>
+    </div>
+  </form>
+</div>

@@ -1,36 +1,32 @@
+<form class="example-form">
 
+  <h2>J'ajoute mes tâches <mat-icon class="mat-18" color="black">wb_sunny</mat-icon>
+  </h2>
+  <div class="example-container">
 
-  <form class="example-form">
+    <mat-form-field appearance="outline">
+      <mat-label></mat-label>
+      <!--! forcontrolName pour formcontrol, formcontrol avec property binding si c'est tt seul -->
+      <input matInput type="text" [formControl]="description">
 
-    <h3>Mes tâches <mat-icon class="mat-18" color="black">smile</mat-icon>
-    </h3>
-    <div class="example-container">
-
-      <mat-form-field appearance="outline">
-        <mat-label></mat-label>
-        <!--! forcontrolName pour formcontrol, formcontrol avec property binding si c'est tt seul -->
-        <input matInput type="text" [formControl]="description">
-
-      </mat-form-field>
-    </div>
-  </form>
-  <div>
-    <ul *ngFor="let item of descriptionArray">
-
-      <li><input type="checkbox" id="check">
-        <label for="checkbox">{{item.description}}</label>
-
-        <mat-icon class="mat-18" (click)="onDelete(item.detail_id)">close</mat-icon>
-      </li>
-
-
-    </ul>
-
-
-
+    </mat-form-field>
   </div>
-  <mat-card-actions>
-    <button mat-button color="primary" fill="outline" (click)="onClick(this)">Valider <mat-icon>save</mat-icon></button>
-    <button mat-button color="primary" (click)="onCancel()">Sortir</button>
-  </mat-card-actions>
+</form>
+<div class="descriptions">
+  <ul *ngFor="let item of descriptionArray">
 
+    <li>
+      <label for="checkbox">{{item.description}}</label>
+      <mat-icon class="mat-18" color="warn" (click)="onDelete(item.detail_id)">close</mat-icon>
+    </li>
+
+
+  </ul>
+
+
+
+</div>
+<mat-card-actions>
+  <button mat-button color="primary" fill="outline" (click)="onClick(this)">Valider <mat-icon>save</mat-icon></button>
+  <button mat-button color="primary" (click)="onCancel()">Sortir</button>
+</mat-card-actions>

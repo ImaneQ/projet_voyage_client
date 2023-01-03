@@ -45,6 +45,8 @@ import { TitleModalComponent } from './modal/title-modal/title-modal.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { UpdateTitleComponent } from './modal/update-title/update-title/update-title.component';
 import { httpInterceptorProviders } from './interceptors/index';
+import { BookmarkTileComponent } from './components/bookmark-tile/bookmark-tile.component';
+import { AddBookmarkComponent } from './modal/add-bookmark/add-bookmark.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { httpInterceptorProviders } from './interceptors/index';
     TitleModalComponent,
     PrintModalComponent,
     UpdateTitleComponent,
-    BookmarksComponent
+    BookmarksComponent,
+    BookmarkTileComponent,
+    AddBookmarkComponent
 
 
   ],

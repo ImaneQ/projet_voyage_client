@@ -3,9 +3,15 @@
 
   <div class="container-list">
 
+    <!-- on parcourt le tableau grace à ngFor -->
     <div class="lists" *ngFor="let list of listsArray">
+
+      <!-- on utilise le property binding pour afficher les valeures dans le html -->
       <p (click)="updateTitle(list)">{{list.list_title}}</p>
+
       <div class="icons">
+        <!-- on (click) on ajoute les méthodes-->
+
         <mat-icon class="mat-18" (click)="onClickCard(list)">edit
         </mat-icon>
         <mat-icon class="mat-18" (click)="onDelete(list.todo_list_id)">delete</mat-icon>
@@ -28,5 +34,3 @@
 
 
 </section>
-
-

@@ -9,11 +9,6 @@ import { Token } from '@angular/compiler';
 })
 export class BackendService {
 
-  // @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
-
-  // private userSubject = new BehaviorSubject([{}]);
-  // user$: Observable<any> = this.userSubject.asObservable();
-
   urlUser = "http://localhost:5000/user";
   urlRegister = "http://localhost:5000/register";
   urlLogin = "http://localhost:5000/login";

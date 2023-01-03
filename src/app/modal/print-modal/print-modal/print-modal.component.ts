@@ -22,31 +22,12 @@ export class PrintModalComponent implements OnInit {
     this.titleInfos = this.datas;
     console.log('this.titleInfos', this.titleInfos);
 
-    // this._todoService.readOneList(this.datas.todo_list_id).subscribe((response: any) => {
-    //   console.log(response);
-
-    // })
-
     this._todoItemService.getAllDetails(this.datas.todo_list_id).subscribe((response: any) => {
       console.log(response);
       this.descArray = response
     })
   }
 
-  // getList(id: any) {
-  //   this._todoService.readOneList(id).subscribe((response: any) => {
-  //     console.log(response);
-  //     this.titleInfos = response
-  //   })
-  // }
-
-
-  // getDetails(id: any) {
-  //   this._todoItemService.getAllDetails(id).subscribe((response: any) => {
-  //     console.log('response',response);
-  //     // this.titleInfos = response
-  //   })
-  // }
 
 
   download() {
