@@ -1,5 +1,5 @@
 .bookmarks-wrapper {
-
+  margin: auto;
   overflow-y: scroll;
   height: 45vh;
   display: flex;
@@ -18,6 +18,12 @@
       gap: 20px;
       justify-content: center;
       flex-wrap: wrap;
+    }
+
+    .add-btn{
+      .btns-centered {
+        margin: auto;
+      }
     }
 
   }

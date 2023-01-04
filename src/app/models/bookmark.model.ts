@@ -10,9 +10,9 @@ export class Bookmark {
     this.id = uuidv4()
     this.url = new URL(url)
 
-    if (!name)  {
+    if (!name) name = this.url.hostname
 
       this.name = name
-    }
+
   }
 }

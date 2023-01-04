@@ -3,14 +3,16 @@
   border-radius: 5px;
   max-height: 100%;
   overflow: auto;
-  width: 40vw;
+  width: 45vw;
   background: rgba($color: white, $alpha: 0.5);
   backdrop-filter: blur(4px);
   display: flex;
   flex-direction: column;
   margin: auto;
   justify-content: space-between;
-
+  mat-form-field {
+    margin-right: 2vw;
+  }
   .form {
 
     .buttons {
