@@ -52,9 +52,10 @@ Afin de pouvoir exécuter l'application sur votre poste, vous devez d'aborder in
 ### Tests unitaires
     1. Taper `ng test` afin d'éxecuter les tests unitaires via Karma.
     2. A venir.
-## Screenshots
+    
+## Aperçu
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+Voire issues.
 
 
 ## 🛠 Skills
