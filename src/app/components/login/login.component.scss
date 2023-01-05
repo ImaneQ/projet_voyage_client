@@ -11,13 +11,16 @@
   position: relative;
 
   .example-card {
-    height: 48vh;
+    height: 550px;
     background: rgba($color: white, $alpha: 0.3);
     backdrop-filter: blur(4px);
     padding: 1vw;
     width: 420px;
     padding-top: 3vh;
 
+    @media (max-width:400px) {
+      width: 600px;
+    }
 
     mat-card-content {
       color: black;
