@@ -10,23 +10,14 @@
 .all {
   position: relative;
 
-
-  // .bg {
-  //   background-image: url('https://images.pexels.com/photos/14013191/pexels-photo-14013191.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-  //   background-repeat: no-repeat;
-  //   background-position: center;
-  //   background-size: cover;
-  //   width: 100vw;
-  //   height: 100vh;
-  //   position: absolute;
-  // }
-
   .example-card {
-    max-width: 45vw;
-    height: 50vh;
+    height: 48vh;
     background: rgba($color: white, $alpha: 0.3);
     backdrop-filter: blur(4px);
-    padding: 5vw;
+    padding: 1vw;
+    width: 300px;
+    padding-top: 3vh;
+
 
     mat-card-content {
       color: black;
@@ -35,11 +26,23 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: auto;
 
         h1 {
-          font-size: 2em;
+          font-size: 25px;
           text-shadow: 1px 1px black;
-          color:rgba(white, 0.5);
+          color: rgba(white, 0.5);
+        }
+
+        h3 {
+          font-size: 15px;
+        }
+
+        .example-container {
+          mat-form-field {
+
+            min-width: 10vw;
+          }
         }
 
         .mat-form-fields {
